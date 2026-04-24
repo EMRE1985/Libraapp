@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LIBRA Admin</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#f4f6f8;
+}
+
+/* LOGIN */
+.login-screen{
+  display:flex;
+  height:100vh;
+  justify-content:center;
+  align-items:center;
+}
+
+.login-box{
+  background:white;
+  padding:30px;
+  border-radius:16px;
+  width:90%;
+  max-width:320px;
+  text-align:center;
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+.login-box h2{
+  margin-bottom:20px;
+}
+
+input{
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border-radius:10px;
+  border:1px solid #ddd;
+}
+
+button{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:10px;
+  background:#16a34a;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* PANEL */
+.admin-panel{
+  display:none;
+}
+
+.topbar{
+  background:white;
+  padding:15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 2px 10px rgba(0,0,0,0.05);
+}
+
+.card{
+  background:white;
+  margin:15px;
+  padding:20px;
+  border-radius:16px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+<div class="login-screen" id="loginScreen">
+  <div class="login-box">
+    <h2>LIBRA Admin</h2>
+    <input type="text" id="username" placeholder="Kullanıcı adı">
+    <input type="password" id="password" placeholder="Şifre">
+    <button onclick="login()">Giriş Yap</button>
+  </div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div class="admin-panel" id="adminPanel">
+
+  <div class="topbar">
+    <div><b>LIBRA Admin</b></div>
+    <button onclick="logout()">Çıkış</button>
+  </div>
+
+  <div class="card">
+    <h3>Hoş geldin Emre 👋</h3>
+    <p>Admin panel aktif.</p>
+  </div>
+
+  <div class="card">
+    <h3>Hızlı İşlemler</h3>
+    <p>- Danışan yönetimi</p>
+    <p>- Plan oluşturma</p>
+    <p>- Mesaj gönderme</p>
+  </div>
+
+</div>
+
+<script>
+
+function login(){
+  const user = document.getElementById("username").value;
+  const pass = document.getElementById("password").value;
+
+  if(user === "admin" && pass === "1234"){
+    document.getElementById("loginScreen").style.display = "none";
+    document.getElementById("adminPanel").style.display = "block";
+  } else {
+    alert("Hatalı giriş");
+  }
+}
+
+function logout(){
+  document.getElementById("adminPanel").style.display = "none";
+  document.getElementById("loginScreen").style.display = "flex";
+}
+
+</script>
+
+</body>
+</html>
